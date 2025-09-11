@@ -258,6 +258,3 @@ Para abrir como open-source, sugere-se **MIT License**.
 * **Vídeo (YouTube)**: *(insira aqui o link do pitch)*
 
 ```
-
-se quiser, crio também um **CHANGELOG.md** enxuto com as melhorias desta entrega (tema, IA avançada, gráficos simulados, ManageEngine DEMO, tela Sobre, botões 193/Sair nas telas).
-```
