@@ -1,4 +1,3 @@
-aqui está o **README.md** prontinho pra copiar e colar (sem citar integrantes):
 
 ```markdown
 # RuraLTime
