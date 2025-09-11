@@ -8,13 +8,14 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final emailController = TextEditingController();
     final senhaController = TextEditingController();
+    final scheme = Theme.of(context).colorScheme; // usa as cores do tema
 
     return Scaffold(
-      backgroundColor: const Color(0xFFFFF8F0), // fundo suave laranja claro
+      // Use o background do tema (fica igual ao resto)
+      backgroundColor: scheme.background,
       appBar: AppBar(
         title: const Text('Login'),
-        backgroundColor: Colors.deepOrange,
-        foregroundColor: Colors.white,
+        // Deixe o AppBar pegar a cor do Theme (já vem Dark Moss do nosso tema)
         centerTitle: true,
       ),
       body: Padding(
@@ -23,42 +24,50 @@ class LoginScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const Text(
+                // Título com a cor primária da marca (Fern Green)
+                Text(
                   'Bem-vindo ao RuraLTime',
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
-                    color: Colors.deepOrange,
+                    color: scheme.primary,
                   ),
                 ),
                 const SizedBox(height: 32),
+
+                // Campo de e-mail
                 TextField(
                   controller: emailController,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: 'E-mail',
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.email),
+                    border: const OutlineInputBorder(),
+                    prefixIcon: const Icon(Icons.email),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: scheme.primary, width: 2),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 16),
+
+                // Campo de senha
                 TextField(
                   controller: senhaController,
                   obscureText: true,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: 'Senha',
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.lock),
+                    border: const OutlineInputBorder(),
+                    prefixIcon: const Icon(Icons.lock),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: scheme.primary, width: 2),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 24),
+
+                // Botão Entrar (usa Elevated padrão do tema -> cor primaria)
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepOrange,
-                      padding: const EdgeInsets.symmetric(vertical: 14),
-                      textStyle: const TextStyle(fontSize: 16),
-                    ),
                     onPressed: () {
                       Navigator.pushReplacement(
                         context,
@@ -69,15 +78,17 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 12),
+
+                // Link Cadastrar usando a cor primária
                 TextButton(
                   onPressed: () {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Funcionalidade futura')),
                     );
                   },
-                  child: const Text(
+                  child: Text(
                     'Cadastrar',
-                    style: TextStyle(color: Colors.deepOrange),
+                    style: TextStyle(color: scheme.primary),
                   ),
                 ),
               ],

@@ -3,7 +3,10 @@ import '../models/clima_model.dart';
 
 class ApiService {
   final Dio _dio = Dio();
-  final String _apiKey = 'd5f6b6a00623c81b00a4b95bd7ef4d2a'; // chave da api
+
+
+  final String _apiKey = const String.fromEnvironment('OWM_KEY', defaultValue: '');
+
 
   Future<ClimaModel?> fetchClima(double lat, double lon) async {
     try {

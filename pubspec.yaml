@@ -21,6 +21,11 @@ dependencies:
   geocoding: ^3.0.0
   permission_handler: ^11.3.1
 
+
+  package_info_plus: ^8.0.0
+
+
+
   # Requisições HTTP
   dio: ^5.4.3+1
 
